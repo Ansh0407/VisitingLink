@@ -576,10 +576,10 @@ footer.main-footer {
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  #hero { flex-direction: column; text-align: center; padding-top: 120px; }
+  /* #hero { flex-direction: column; text-align: center; padding-top: 120px; }
   .hero-left { max-width: 100%; }
   .hero-stats { justify-content: center; }
-  .hero-buttons { justify-content: center; }
+  .hero-buttons { justify-content: center; } */
   .section-sub { max-width: 100%; }
   .features-grid { grid-template-columns: 1fr 1fr; }
   .how-inner { flex-direction: column; align-items: center; }

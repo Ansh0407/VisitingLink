@@ -13,7 +13,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative pt-32 pb-20 overflow-hidden"
+      className="relative pt-5 pb-10 overflow-hidden"
     >
 
       {/* Background orbs */}
@@ -132,15 +132,18 @@ export function HeroSection() {
           transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
         >
 
-          <div className="w-full max-w-[520px] h-[360px] sm:h-[420px] lg:h-[520px] relative overflow-hidden rounded-xl">
+          <div className="w-full max-w-[520px] h-[360px] sm:h-[400px] lg:h-[520px] relative overflow-hidden rounded-xl">
 
-            <Spline
-              scene="https://prod.spline.design/nUe920k0Pqdc4tr2/scene.splinecode"
-              style={{ width: '100%', height: '100%' }}
-            />
+            {/* Move scene up so watermark goes outside frame */}
+            <div className="absolute inset-0 w-full h-[120%] -top-16">
+              <Spline
+                scene="https://prod.spline.design/nUe920k0Pqdc4tr2/scene.splinecode"
+                className="w-full h-full"
+              />
+            </div>
 
-            {/* Hide Spline watermark */}
-            <div className="absolute bottom-0 right-0 w-[250px] h-[60px] bg-[#0a0a0f]" />
+            {/* Soft fade instead of hard block */}
+            <div className="pointer-events-none absolute bottom-0 left-0 w-full h-24 bg-black" />
 
           </div>
 
