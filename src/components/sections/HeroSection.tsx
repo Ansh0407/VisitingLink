@@ -134,7 +134,6 @@ export function HeroSection() {
 
           <div className="w-full max-w-[520px] h-[360px] sm:h-[400px] lg:h-[520px] relative overflow-hidden rounded-xl">
 
-            {/* Move scene up so watermark goes outside frame */}
             <div className="absolute inset-0 w-full h-[120%] -top-16">
               <Spline
                 scene="https://prod.spline.design/nUe920k0Pqdc4tr2/scene.splinecode"
@@ -142,8 +141,7 @@ export function HeroSection() {
               />
             </div>
 
-            {/* Soft fade instead of hard block */}
-            <div className="pointer-events-none absolute bottom-0 left-0 w-full h-24 bg-black" />
+            <div className="pointer-events-none absolute bottom-0 left-0 w-full h-24 bg-[#05060B]" />
 
           </div>
 
