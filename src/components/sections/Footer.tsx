@@ -38,7 +38,7 @@ export function Footer() {
 
       {/* Bottom bar */}
       <div className="footer-bottom">
-        <div className="footer-copy">© 2025 VisitingLink. All rights reserved.</div>
+        <div className="footer-copy">© 2026 VisitingLink. All rights reserved.</div>
         <div className="footer-legal">
           <a href="#" data-hover>Privacy</a>
           <a href="#" data-hover>Terms</a>

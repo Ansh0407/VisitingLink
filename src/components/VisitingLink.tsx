@@ -27,13 +27,14 @@ export default function VisitingLink() {
 
       <main>
         <HeroSection />
+        <CTASection />
+        <DemoSection />
         <FeaturesSection />
         <HowItWorksSection />
-        <DemoSection />
         <BenefitsSection />
         <TestimonialsSection />
         <PricingSection />
-        <CTASection />
+        
       </main>
 
       <Footer />

@@ -1,90 +1,153 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { DigitalCard } from '@/components/ui/DigitalCard'
 import { fadeUp } from '@/lib/animations'
 import { HERO_STATS } from '@/data'
 import Spline from '@splinetool/react-spline'
 
 export function HeroSection() {
+
   const { scrollY } = useScroll()
   const heroY = useTransform(scrollY, [0, 600], [0, -80])
 
   return (
-    <section id="hero">
+    <section
+      id="hero"
+      className="relative pt-32 pb-20 overflow-hidden"
+    >
+
       {/* Background orbs */}
       <div
-        className="orb"
+        className="absolute blur-3xl opacity-60"
         style={{
-          width: 600, height: 600, top: -200, left: -150,
-          background: 'radial-gradient(circle, rgba(124,111,255,0.18), transparent 65%)',
+          width: 600,
+          height: 600,
+          top: -200,
+          left: -150,
+          background:
+            'radial-gradient(circle, rgba(124,111,255,0.18), transparent 65%)',
         }}
       />
+
       <div
-        className="orb"
+        className="absolute blur-3xl opacity-50"
         style={{
-          width: 400, height: 400, top: 100, right: -100,
-          background: 'radial-gradient(circle, rgba(0,229,195,0.12), transparent 65%)',
+          width: 400,
+          height: 400,
+          top: 100,
+          right: -100,
+          background:
+            'radial-gradient(circle, rgba(0,229,195,0.12), transparent 65%)',
         }}
       />
 
-      {/* Left: text content */}
-      <motion.div className="hero-left" style={{ y: heroY }}>
-        <motion.div className="hero-badge" variants={fadeUp} initial="hidden" animate="visible" custom={0}>
-          <span className="badge-dot" />
-          Now with NFC Card Sharing
+      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
+
+        {/* LEFT SIDE */}
+        <motion.div
+          className="text-center lg:text-left"
+          style={{ y: heroY }}
+        >
+
+          {/* Badge */}
+          <motion.div
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm mb-6"
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={0}
+          >
+            <span className="w-2 h-2 bg-cyan-400 rounded-full" />
+            Now with NFC Card Sharing
+          </motion.div>
+
+          {/* Heading */}
+          <motion.h1
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={0.1}
+          >
+            Your Digital <br />
+            <span className="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
+              Visiting Card.
+            </span>
+          </motion.h1>
+
+          {/* Subtext */}
+          <motion.p
+            className="mt-6 text-gray-400 max-w-xl mx-auto lg:mx-0"
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={0.2}
+          >
+            Network smarter with a digital card that lives online, updates
+            instantly, and makes a lasting impression — no paper, no limits.
+          </motion.p>
+
+          {/* Buttons */}
+          <motion.div
+            className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={0.3}
+          >
+            <button className="px-7 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 font-semibold hover:opacity-90 transition">
+              ✦ Create Your Card
+            </button>
+
+            <button className="px-7 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition">
+              ▶ Watch Demo
+            </button>
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            className="mt-12 grid grid-cols-3 gap-6 text-center lg:text-left"
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            custom={0.4}
+          >
+            {HERO_STATS.map(({ value, label }) => (
+              <div key={label}>
+                <div className="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
+                  {value}
+                </div>
+                <div className="text-sm text-gray-400">{label}</div>
+              </div>
+            ))}
+          </motion.div>
+
         </motion.div>
 
-        <motion.h1 className="hero-h1" variants={fadeUp} initial="hidden" animate="visible" custom={0.1}>
-          Your Digital<br />
-          <span className="grad-text">Visiting Card.</span>
-        </motion.h1>
+        {/* RIGHT SIDE */}
+        <motion.div
+          className="w-full flex justify-center lg:justify-end"
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        >
 
-        <motion.p className="hero-sub" variants={fadeUp} initial="hidden" animate="visible" custom={0.2}>
-          Network smarter with a digital card that lives online, updates instantly,
-          and makes a lasting impression — no paper, no limits.
-        </motion.p>
+          <div className="w-full max-w-[520px] h-[360px] sm:h-[420px] lg:h-[520px] relative overflow-hidden rounded-xl">
 
-        <motion.div className="hero-buttons" variants={fadeUp} initial="hidden" animate="visible" custom={0.3}>
-          <button className="btn-primary" data-hover>✦ Create Your Card</button>
-          <button className="btn-secondary" data-hover>▶ Watch Demo</button>
+            <Spline
+              scene="https://prod.spline.design/nUe920k0Pqdc4tr2/scene.splinecode"
+              style={{ width: '100%', height: '100%' }}
+            />
+
+            {/* Hide Spline watermark */}
+            <div className="absolute bottom-0 right-0 w-[250px] h-[60px] bg-[#0a0a0f]" />
+
+          </div>
+
         </motion.div>
 
-        <motion.div className="hero-stats" variants={fadeUp} initial="hidden" animate="visible" custom={0.4}>
-          {HERO_STATS.map(({ value, label }) => (
-            <div key={label}>
-              <div className="stat-val grad-text">{value}</div>
-              <div className="stat-lbl">{label}</div>
-            </div>
-          ))}
-        </motion.div>
-      </motion.div>
+      </div>
 
-      {/* Right: 3D card */}
-      {<motion.div
-  className="hero-right"
-  initial={{ opacity: 0, x: 60 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
->
-  <div
-    style={{
-      width: "100%",
-      height: "520px",
-      position: "relative",
-      overflow: "hidden",
-      borderRadius: "20px"
-    }}
-  >
-    <Spline
-      scene="https://prod.spline.design/nUe920k0Pqdc4tr2/scene.splinecode"
-      style={{
-        width: "100%",
-        height: "100%"
-      }}
-    />
-  </div>
-</motion.div> }
     </section>
   )
 }

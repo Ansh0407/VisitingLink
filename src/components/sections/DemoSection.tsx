@@ -8,7 +8,7 @@ import { DEMO_FEATURES } from '@/data'
 export function DemoSection() {
   return (
     <section id="demo">
-      <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 1.25rem' }}>
         <SectionHeader
           label="✦ Live Preview"
           title={<>See it in <span className="grad-text">action</span></>}
@@ -19,12 +19,11 @@ export function DemoSection() {
           style={{
             marginTop: '3rem',
             display: 'grid',
-            gridTemplateColumns: '420px 1fr',
-            gap: '3rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(420px, 100%), 1fr))',
+            gap: '2rem',
             alignItems: 'center',
           }}
         >
-
           {/* Card */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -60,19 +59,52 @@ export function DemoSection() {
                   viewport={{ once: true, amount: 0.3 }}
                 >
                   <div className="demo-feat-icon">{feature.icon}</div>
-
                   <div>
                     <div className="demo-feat-title">{feature.title}</div>
                     <div className="demo-feat-desc">{feature.desc}</div>
                   </div>
-
                 </motion.div>
               ))}
             </div>
           </motion.div>
-
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          #demo .demo-inner {
+            grid-template-columns: 1fr !important;
+            gap: 2rem !important;
+          }
+
+          #demo .demo-text {
+            text-align: center;
+          }
+
+          #demo .demo-feat {
+            flex-direction: row;
+            text-align: left;
+          }
+
+          #demo .demo-feature-list {
+            gap: 1rem;
+          }
+        }
+
+        @media (max-width: 480px) {
+          #demo .demo-inner {
+            margin-top: 2rem !important;
+          }
+
+          #demo .demo-feat-title {
+            font-size: 0.95rem;
+          }
+
+          #demo .demo-feat-desc {
+            font-size: 0.8rem;
+          }
+        }
+      `}</style>
     </section>
   )
 }
