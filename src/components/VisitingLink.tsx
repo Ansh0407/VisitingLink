@@ -5,6 +5,7 @@ import { Loader } from '@/components/ui/Loader'
 import { useLoader } from '@/hooks/useLoader'
 import { ParallaxSection } from '@/components/ui/ParallaxSection'
 import BuilderSection from '@/components/ui/BuilderSection'
+import SmoothScroll from '@/components/ui/SmoothScroll'
 
 import {
   Navbar,
@@ -24,13 +25,14 @@ export default function VisitingLink() {
   const loaded = useLoader()
 
   return (
-    <div className="min-h-screen">
+    <SmoothScroll>
+    <div className="min-h-screen bg-[#05060B] overflow-x-hidden">
 
       <Cursor />
       <Loader loaded={loaded} />
       <Navbar />
 
-      <main>
+      <main className="relative">
 
         <HeroSection />
 
@@ -38,14 +40,13 @@ export default function VisitingLink() {
           <CTASection />
         </ParallaxSection>
 
-        {/* BUILDER SECTION */}
         <ParallaxSection>
           <BuilderSection />
         </ParallaxSection>
 
-        <ParallaxSection>
+        {/* <ParallaxSection>
           <DemoSection />
-        </ParallaxSection>
+        </ParallaxSection> */}
 
         <ParallaxSection>
           <FeaturesSection />
@@ -72,5 +73,6 @@ export default function VisitingLink() {
       <Footer />
 
     </div>
+    </SmoothScroll>
   )
 }

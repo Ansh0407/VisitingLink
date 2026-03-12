@@ -20,14 +20,20 @@
 
 html { scroll-behavior: smooth; }
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  overflow-x: hidden;
-  cursor: none;
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+html.lenis {
+  height: auto;
 }
 
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
 /* ── Custom Cursor ── */
 #cursor-dot {
   position: fixed; top: 0; left: 0; z-index: 9999;
@@ -137,6 +143,10 @@ nav.main-nav.scrolled {
 
 /* ── Sections common ── */
 section { position: relative; z-index: 2; padding: 120px 5vw; }
+
+section + section {
+  margin-top: -8vh;
+}
 
 .section-label {
   display: inline-flex; align-items: center; gap: 8px;
