@@ -95,9 +95,9 @@ export function HeroSection() {
             animate="visible"
             custom={0.3}
           >
-            <button className="px-7 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 font-semibold hover:opacity-90 transition">
+            {/* <button className="px-7 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 font-semibold hover:opacity-90 transition">
               ✦ Create Your Card
-            </button>
+            </button> */}
 
             <button className="px-7 py-3 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition">
               ▶ Watch Demo
@@ -132,9 +132,9 @@ export function HeroSection() {
           transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
         >
 
-          <div className="w-full max-w-[520px] h-[360px] sm:h-[400px] lg:h-[520px] relative overflow-hidden rounded-xl">
+          <div className="w-full max-w-[520px] h-[360px] sm:h-[400px] lg:h-[520px] relative overflow-hidden rounded-xl bg-transparent">
 
-            <div className="absolute inset-0 w-full h-[120%] -top-16">
+            <div className="absolute inset-0 w-full h-[110%] -top-16">
               <Spline
                 scene="https://prod.spline.design/nUe920k0Pqdc4tr2/scene.splinecode"
                 className="w-full h-full"

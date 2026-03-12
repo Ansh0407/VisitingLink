@@ -6,7 +6,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #04040a;
+  --bg: #05060B;
   --surface: rgba(255,255,255,0.04);
   --border: rgba(255,255,255,0.08);
   --text: #e8e8f0;
@@ -576,10 +576,7 @@ footer.main-footer {
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  /* #hero { flex-direction: column; text-align: center; padding-top: 120px; }
-  .hero-left { max-width: 100%; }
-  .hero-stats { justify-content: center; }
-  .hero-buttons { justify-content: center; } */
+
   .section-sub { max-width: 100%; }
   .features-grid { grid-template-columns: 1fr 1fr; }
   .how-inner { flex-direction: column; align-items: center; }

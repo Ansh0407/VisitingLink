@@ -4,6 +4,7 @@ import { Cursor } from '@/components/ui/Cursor'
 import { Loader } from '@/components/ui/Loader'
 import { useLoader } from '@/hooks/useLoader'
 import { ParallaxSection } from '@/components/ui/ParallaxSection'
+import BuilderSection from '@/components/ui/BuilderSection'
 
 import {
   Navbar,
@@ -35,6 +36,11 @@ export default function VisitingLink() {
 
         <ParallaxSection>
           <CTASection />
+        </ParallaxSection>
+
+        {/* BUILDER SECTION */}
+        <ParallaxSection>
+          <BuilderSection />
         </ParallaxSection>
 
         <ParallaxSection>

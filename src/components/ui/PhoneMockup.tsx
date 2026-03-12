@@ -14,7 +14,7 @@ export function PhoneMockup() {
         {/* Card preview */}
         <div className="phone-card-preview">
           <div className="phone-avatar">R</div>
-          <div className="phone-name">Rahul Verma</div>
+          <div className="phone-name">Ansh Bhandari</div>
           <div className="phone-role">UI/UX Designer · Figma</div>
           <div className="phone-actions">
             <div className="phone-action-btn primary-btn">💾 Save Contact</div>
@@ -51,7 +51,7 @@ export function PhoneMockup() {
           <div style={{ fontSize: '0.65rem', color: 'var(--muted)', marginBottom: 8 }}>Share your card</div>
           <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
             <div style={{ flex: 1, background: 'rgba(255,255,255,0.06)', borderRadius: 8, padding: '7px 10px', fontSize: '0.62rem', color: 'var(--muted)' }}>
-              visitinglink.io/rahul
+              visitinglink.io/ansh
             </div>
             <div style={{ background: 'linear-gradient(135deg,var(--accent1),#5b52e8)', borderRadius: 8, padding: '7px 12px', fontSize: '0.65rem', fontWeight: 600, color: '#fff' }}>
               Copy
