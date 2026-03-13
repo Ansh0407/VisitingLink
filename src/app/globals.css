@@ -357,6 +357,12 @@ section + section {
   transform: rotateY(180deg);
 }
 
+@keyframes float{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0px);}
+}
+
 [style*="preserve-3d"] {
   transform-style: preserve-3d;
 }

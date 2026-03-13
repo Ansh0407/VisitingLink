@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { RotateCcw, Mail } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { Mail } from "lucide-react";
 import visitingLogo from "@/assets/visitinglink.png";
 
 interface NPCCardProps {
@@ -22,34 +21,51 @@ const NPCCard: React.FC<NPCCardProps> = ({
   const [isFlipped, setIsFlipped] = useState(false)
 
   const handleFlip = () => setIsFlipped(prev => !prev)
-  const handleReset = () => setIsFlipped(false)
+
+  // Auto flip every 3 seconds
+  useEffect(() => {
+
+    const interval = setInterval(() => {
+      setIsFlipped(prev => !prev)
+    }, 3000)
+
+    return () => clearInterval(interval)
+
+  }, [])
 
   return (
 
-    <div className="flex flex-col items-center gap-8">
+    <div className="flex flex-col items-center">
 
+      {/* Card Container */}
       <div
-        className="relative w-[320px] h-[520px]"
-        style={{ perspective: "1000px" }}
+        className="relative w-[320px] h-[520px] group animate-[float_6s_ease-in-out_infinite]"
+        style={{ perspective: "1400px" }}
       >
 
+        {/* Flip Card */}
         <div
           onClick={handleFlip}
-          className={`relative w-full h-full transition-transform duration-700 rounded-xl ${isFlipped ? "rotate-y-180" : ""
-            }`}
+          className={`relative w-full h-full rounded-xl transform-gpu
+          transition-transform duration-700 ease-[cubic-bezier(.4,.2,.2,1)]
+          ${isFlipped ? "rotate-y-180 scale-[1.02]" : "scale-100"}
+          shadow-[0_20px_60px_rgba(79,70,229,0.35)]`}
           style={{ transformStyle: "preserve-3d" }}
         >
 
           {/* FRONT */}
 
           <div
-            className="absolute inset-0 flex flex-col items-center justify-center gap-6 p-8 rounded-xl bg-gradient-to-br from-purple-700 to-indigo-900 text-white"
+            className="absolute inset-0 flex flex-col items-center justify-center gap-6 p-8 rounded-xl
+            bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-900
+            backdrop-blur-xl text-white"
             style={{ backfaceVisibility: "hidden" }}
           >
 
             <img
               src={image || "https://i.pravatar.cc/300"}
               className="w-32 h-32 rounded-full object-cover border-4 border-white/30"
+              alt="profile"
             />
 
             <div className="text-center space-y-2">
@@ -63,15 +79,10 @@ const NPCCard: React.FC<NPCCardProps> = ({
               </p>
 
               {email && (
-
                 <div className="flex items-center justify-center gap-2 text-sm">
-
-                  <Mail size={14} />
-
+                  <Mail size={14}/>
                   {email}
-
                 </div>
-
               )}
 
             </div>
@@ -81,7 +92,8 @@ const NPCCard: React.FC<NPCCardProps> = ({
           {/* BACK */}
 
           <div
-            className="absolute inset-0 flex items-center justify-center rounded-xl bg-black"
+            className="absolute inset-0 flex items-center justify-center rounded-xl
+            bg-gradient-to-br from-[#0F0F14] to-[#1C1C28]"
             style={{
               backfaceVisibility: "hidden",
               transform: "rotateY(180deg)"
@@ -99,18 +111,6 @@ const NPCCard: React.FC<NPCCardProps> = ({
         </div>
 
       </div>
-
-      <Button
-        onClick={handleReset}
-        disabled={!isFlipped}
-        className="flex items-center gap-2"
-      >
-
-        <RotateCcw size={16} />
-
-        Reset Card
-
-      </Button>
 
     </div>
 
