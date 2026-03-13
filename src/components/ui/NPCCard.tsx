@@ -28,8 +28,6 @@ const NPCCard: React.FC<NPCCardProps> = ({
 
     <div className="flex flex-col items-center gap-8">
 
-      {/* CARD */}
-
       <div
         className="relative w-[320px] h-[520px]"
         style={{ perspective: "1000px" }}
@@ -37,29 +35,22 @@ const NPCCard: React.FC<NPCCardProps> = ({
 
         <div
           onClick={handleFlip}
-          role="button"
-          tabIndex={0}
           className={`relative w-full h-full transition-transform duration-700 rounded-xl ${isFlipped ? "rotate-y-180" : ""
             }`}
           style={{ transformStyle: "preserve-3d" }}
         >
 
-          {/* FRONT SIDE */}
+          {/* FRONT */}
 
           <div
             className="absolute inset-0 flex flex-col items-center justify-center gap-6 p-8 rounded-xl bg-gradient-to-br from-purple-700 to-indigo-900 text-white"
             style={{ backfaceVisibility: "hidden" }}
           >
 
-            {/* PROFILE IMAGE */}
-
             <img
               src={image || "https://i.pravatar.cc/300"}
               className="w-32 h-32 rounded-full object-cover border-4 border-white/30"
-              alt="profile"
             />
-
-            {/* DETAILS */}
 
             <div className="text-center space-y-2">
 
@@ -67,36 +58,35 @@ const NPCCard: React.FC<NPCCardProps> = ({
                 {name || "Your Name"}
               </h3>
 
-              <p className="text-sm opacity-80 uppercase">
+              <p className="text-sm uppercase opacity-80">
                 {bio || "Company"}
               </p>
 
               {email && (
-                <div className="flex items-center justify-center gap-2 text-sm opacity-90">
+
+                <div className="flex items-center justify-center gap-2 text-sm">
+
                   <Mail size={14} />
+
                   {email}
+
                 </div>
+
               )}
 
             </div>
 
-            <p className="text-xs opacity-60">
-              Click to flip card
-            </p>
-
           </div>
 
-          {/* BACK SIDE */}
+          {/* BACK */}
 
           <div
-            className="absolute inset-0 flex items-center justify-center p-8 rounded-xl bg-black"
+            className="absolute inset-0 flex items-center justify-center rounded-xl bg-black"
             style={{
               backfaceVisibility: "hidden",
-              transform: "rotateY(180deg)",
+              transform: "rotateY(180deg)"
             }}
           >
-
-            {/* COMPANY LOGO */}
 
             <img
               src={visitingLogo.src}
@@ -110,18 +100,20 @@ const NPCCard: React.FC<NPCCardProps> = ({
 
       </div>
 
-      {/* RESET BUTTON */}
-
       <Button
         onClick={handleReset}
         disabled={!isFlipped}
         className="flex items-center gap-2"
       >
+
         <RotateCcw size={16} />
+
         Reset Card
+
       </Button>
 
     </div>
+
   )
 }
 

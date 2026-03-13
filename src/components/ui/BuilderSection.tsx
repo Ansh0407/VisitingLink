@@ -37,6 +37,7 @@ export default function BuilderSection() {
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
+
     if (!sectionRef.current) return
 
     gsap.fromTo(
@@ -53,10 +54,11 @@ export default function BuilderSection() {
         },
       }
     )
+
   }, [])
 
   const handleChange = (field: keyof CardData, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }))
+    setFormData(prev => ({ ...prev, [field]: value }))
   }
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,11 +69,12 @@ export default function BuilderSection() {
     const reader = new FileReader()
 
     reader.onload = (ev) => {
+
       const result = ev.target?.result as string
 
-      setFormData((prev) => ({
+      setFormData(prev => ({
         ...prev,
-        profileImage: result,
+        profileImage: result
       }))
     }
 
@@ -82,25 +85,41 @@ export default function BuilderSection() {
 
     <section
       ref={sectionRef}
-      className="py-24 px-6 bg-[#05060B]"
+      className="relative py-24 px-6 bg-[#05060B] overflow-hidden"
     >
 
-      <div className="max-w-[1200px] mx-auto">
+      {/* FLOATING GLOW ORBS */}
 
-        {/* Heading */}
+      <div className="pointer-events-none absolute inset-0 z-0">
+
+        <div className="orb orb1" />
+        <div className="orb orb2" />
+        <div className="orb orb3" />
+        <div className="orb orb4" />
+
+      </div>
+
+      <div className="relative z-10 max-w-[1200px] mx-auto">
+
+        {/* HEADER */}
 
         <div className="mb-20 max-w-3xl">
 
-          <div className="inline-flex items-center gap-2 px-5 py-2 mb-6 rounded-full 
+          <div className="inline-flex items-center gap-2 px-5 py-2 mb-6 rounded-full
           border border-teal-500/30 bg-teal-500/10 text-teal-400 text-sm">
+
             ✦ LIVE PREVIEW
+
           </div>
 
           <h2 className="text-5xl md:text-6xl font-bold text-white">
+
             <span className="text-gray-200">See it in</span>{" "}
+
             <span className="bg-gradient-to-r from-blue-500 via-indigo-400 to-cyan-400 bg-clip-text text-transparent">
               action
             </span>
+
           </h2>
 
         </div>
@@ -112,37 +131,38 @@ export default function BuilderSection() {
           <div className="flex flex-col gap-6">
 
             <FormField
-              icon={<User size={20} className="text-gray-400" />}
+              icon={<User size={20} className="text-gray-400"/>}
               label="Name"
               placeholder="Jane Doe"
               value={formData.fullName}
-              onChange={(v) => handleChange("fullName", v)}
+              onChange={(v)=>handleChange("fullName",v)}
             />
 
             <FormField
-              icon={<Briefcase size={20} className="text-gray-400" />}
+              icon={<Briefcase size={20} className="text-gray-400"/>}
               label="Company"
               placeholder="Acme Corp"
               value={formData.company}
-              onChange={(v) => handleChange("company", v)}
+              onChange={(v)=>handleChange("company",v)}
             />
 
             <FormField
-              icon={<EnvelopeSimple size={20} className="text-gray-400" />}
+              icon={<EnvelopeSimple size={20} className="text-gray-400"/>}
               label="Email"
               placeholder="email@example.com"
               value={formData.email}
-              onChange={(v) => handleChange("email", v)}
+              onChange={(v)=>handleChange("email",v)}
             />
 
-            {/* Upload Image */}
-
             <button
-              onClick={() => fileInputRef.current?.click()}
+              onClick={()=>fileInputRef.current?.click()}
               className="flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-gray-700 text-gray-200 hover:bg-[#111]"
             >
-              <UploadSimple size={18} />
+
+              <UploadSimple size={18}/>
+
               Upload Image
+
             </button>
 
             <input
@@ -155,9 +175,13 @@ export default function BuilderSection() {
 
           </div>
 
-          {/* PREVIEW */}
+          {/* CARD PREVIEW */}
 
-          <div className="flex justify-center lg:sticky top-24 h-fit">
+          <div className="relative flex justify-center lg:sticky top-24 h-fit">
+
+            {/* glow behind card */}
+
+            <div className="absolute w-[280px] h-[280px] bg-indigo-500/30 blur-[120px] rounded-full"/>
 
             <NPCCard
               name={formData.fullName}
@@ -176,12 +200,12 @@ export default function BuilderSection() {
   )
 }
 
-interface FormFieldProps {
-  icon: React.ReactNode
-  label: string
-  placeholder: string
-  value: string
-  onChange: (v: string) => void
+interface FormFieldProps{
+  icon:React.ReactNode
+  label:string
+  placeholder:string
+  value:string
+  onChange:(v:string)=>void
 }
 
 function FormField({
@@ -189,10 +213,10 @@ function FormField({
   label,
   placeholder,
   value,
-  onChange,
-}: FormFieldProps) {
+  onChange
+}:FormFieldProps){
 
-  return (
+  return(
 
     <div className="flex flex-col gap-1.5">
 
@@ -207,7 +231,7 @@ function FormField({
         <input
           placeholder={placeholder}
           value={value}
-          onChange={(e) => onChange(e.target.value)}
+          onChange={(e)=>onChange(e.target.value)}
           className="flex-1 bg-transparent text-white placeholder-gray-500 outline-none"
         />
 

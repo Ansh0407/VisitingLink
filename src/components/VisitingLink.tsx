@@ -12,7 +12,7 @@ import {
   HeroSection,
   FeaturesSection,
   HowItWorksSection,
-  DemoSection,
+
   BenefitsSection,
   TestimonialsSection,
   PricingSection,
@@ -44,9 +44,7 @@ export default function VisitingLink() {
           <BuilderSection />
         </ParallaxSection>
 
-        {/* <ParallaxSection>
-          <DemoSection />
-        </ParallaxSection> */}
+     
 
         <ParallaxSection>
           <FeaturesSection />
