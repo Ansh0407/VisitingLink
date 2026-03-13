@@ -8,7 +8,7 @@ import type {
   ComparisonRow,
 } from '@/types'
 
-export const NAV_LINKS = ['Features', 'How It Works', 'Demo', 'Pricing'] as const
+export const NAV_LINKS = ['Features', 'How It Works', 'Shop', 'Pricing'] as const
 
 export const HERO_STATS = [
   { value: '50K+', label: 'Cards Created' },

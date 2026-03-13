@@ -35,15 +35,23 @@ const NPCCard: React.FC<NPCCardProps> = ({
 
   return (
 
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-full">
 
       {/* Card Container */}
+
       <div
-        className="relative w-[320px] h-[520px] group animate-[float_6s_ease-in-out_infinite]"
+        className="
+        relative
+        w-[260px] h-[420px]
+        sm:w-[300px] sm:h-[480px]
+        md:w-[320px] md:h-[520px]
+        animate-[float_6s_ease-in-out_infinite]
+        "
         style={{ perspective: "1400px" }}
       >
 
         {/* Flip Card */}
+
         <div
           onClick={handleFlip}
           className={`relative w-full h-full rounded-xl transform-gpu
@@ -56,33 +64,51 @@ const NPCCard: React.FC<NPCCardProps> = ({
           {/* FRONT */}
 
           <div
-            className="absolute inset-0 flex flex-col items-center justify-center gap-6 p-8 rounded-xl
+            className="
+            absolute inset-0
+            flex flex-col items-center justify-center
+            gap-4 sm:gap-6
+            p-6 sm:p-8
+            rounded-xl
             bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-900
-            backdrop-blur-xl text-white"
+            text-white
+            "
             style={{ backfaceVisibility: "hidden" }}
           >
 
             <img
               src={image || "https://i.pravatar.cc/300"}
-              className="w-32 h-32 rounded-full object-cover border-4 border-white/30"
+              className="
+              w-24 h-24
+              sm:w-28 sm:h-28
+              md:w-32 md:h-32
+              rounded-full object-cover border-4 border-white/30
+              "
               alt="profile"
             />
 
-            <div className="text-center space-y-2">
+            <div className="text-center space-y-1 sm:space-y-2">
 
-              <h3 className="text-2xl font-bold">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold">
                 {name || "Your Name"}
               </h3>
 
-              <p className="text-sm uppercase opacity-80">
+              <p className="text-xs sm:text-sm uppercase opacity-80">
                 {bio || "Company"}
               </p>
 
               {email && (
-                <div className="flex items-center justify-center gap-2 text-sm">
-                  <Mail size={14}/>
-                  {email}
+
+                <div className="flex items-center justify-center gap-2 text-xs sm:text-sm">
+
+                  <Mail size={14} />
+
+                  <span className="truncate max-w-[180px]">
+                    {email}
+                  </span>
+
                 </div>
+
               )}
 
             </div>
@@ -92,8 +118,12 @@ const NPCCard: React.FC<NPCCardProps> = ({
           {/* BACK */}
 
           <div
-            className="absolute inset-0 flex items-center justify-center rounded-xl
-            bg-gradient-to-br from-[#0F0F14] to-[#1C1C28]"
+            className="
+            absolute inset-0
+            flex items-center justify-center
+            rounded-xl
+            bg-gradient-to-br from-[#0F0F14] to-[#1C1C28]
+            "
             style={{
               backfaceVisibility: "hidden",
               transform: "rotateY(180deg)"
@@ -103,7 +133,12 @@ const NPCCard: React.FC<NPCCardProps> = ({
             <img
               src={visitingLogo.src}
               alt="Visitinglink Logo"
-              className="w-48 object-contain opacity-90"
+              className="
+              w-36
+              sm:w-40
+              md:w-48
+              object-contain opacity-90
+              "
             />
 
           </div>

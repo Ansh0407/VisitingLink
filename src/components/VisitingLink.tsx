@@ -6,13 +6,14 @@ import { useLoader } from '@/hooks/useLoader'
 import { ParallaxSection } from '@/components/ui/ParallaxSection'
 import BuilderSection from '@/components/ui/BuilderSection'
 import SmoothScroll from '@/components/ui/SmoothScroll'
+import ShopSection from './sections/ShopSection'
+import { CartProvider } from "@/context/CartContext"
 
 import {
   Navbar,
   HeroSection,
   FeaturesSection,
   HowItWorksSection,
-
   BenefitsSection,
   TestimonialsSection,
   PricingSection,
@@ -25,52 +26,57 @@ export default function VisitingLink() {
   const loaded = useLoader()
 
   return (
+    <CartProvider>
     <SmoothScroll>
-    <div className="min-h-screen bg-[#05060B] overflow-x-hidden">
+      <div className="min-h-screen bg-[#05060B] overflow-x-hidden">
 
-      <Cursor />
-      <Loader loaded={loaded} />
-      <Navbar />
+        <Cursor />
+        <Loader loaded={loaded} />
+        <Navbar />
 
-      <main className="relative">
+        <main className="relative">
 
-        <HeroSection />
+          <HeroSection />
 
-        <ParallaxSection>
-          <CTASection />
-        </ParallaxSection>
+          <ParallaxSection>
+            <CTASection />
+          </ParallaxSection>
 
-        <ParallaxSection>
-          <BuilderSection />
-        </ParallaxSection>
+          <ParallaxSection>
+            <BuilderSection />
+          </ParallaxSection>
 
-     
+          <ParallaxSection>
+            <ShopSection />
+          </ParallaxSection>
 
-        <ParallaxSection>
-          <FeaturesSection />
-        </ParallaxSection>
 
-        <ParallaxSection>
-          <HowItWorksSection />
-        </ParallaxSection>
+          <ParallaxSection>
+            <FeaturesSection />
+          </ParallaxSection>
 
-        <ParallaxSection>
-          <BenefitsSection />
-        </ParallaxSection>
+          <ParallaxSection>
+            <HowItWorksSection />
+          </ParallaxSection>
 
-        <ParallaxSection>
-          <TestimonialsSection />
-        </ParallaxSection>
+          <ParallaxSection>
+            <BenefitsSection />
+          </ParallaxSection>
 
-        <ParallaxSection>
-          <PricingSection />
-        </ParallaxSection>
+          <ParallaxSection>
+            <TestimonialsSection />
+          </ParallaxSection>
 
-      </main>
+          <ParallaxSection>
+            <PricingSection />
+          </ParallaxSection>
 
-      <Footer />
+        </main>
 
-    </div>
+        <Footer />
+
+      </div>
     </SmoothScroll>
+    </CartProvider>
   )
 }
