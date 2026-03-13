@@ -13,7 +13,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative pt-5 pb-10 overflow-hidden"
+      className="relative overflow-hidden"
     >
 
       {/* Background orbs */}
@@ -40,8 +40,8 @@ export function HeroSection() {
             'radial-gradient(circle, rgba(0,229,195,0.12), transparent 65%)',
         }}
       />
-
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
+<div className="sticky top-0  h-screen flex items-center pt-2">
+ <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 xl:gap-28 items-center w-full">
 
         {/* LEFT SIDE */}
         <motion.div
@@ -148,7 +148,7 @@ export function HeroSection() {
         </motion.div>
 
       </div>
-
+</div>
     </section>
   )
 }

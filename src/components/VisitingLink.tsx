@@ -44,10 +44,6 @@ export default function VisitingLink() {
           <BuilderSection />
         </ParallaxSection>
 
-        {/* <ParallaxSection>
-          <DemoSection />
-        </ParallaxSection> */}
-
         <ParallaxSection>
           <FeaturesSection />
         </ParallaxSection>
